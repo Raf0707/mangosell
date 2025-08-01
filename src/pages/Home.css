@@ -1,0 +1,155 @@
+.home-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.video-section {
+    position: relative;
+    flex: 0 0 130%;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.prices-section {
+    flex: 0 0 60%;
+    background-color: #fff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.prices-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.prices-section table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px;
+    font-size: 2rem; /* Увеличенный размер текста */
+}
+
+.prices-section td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    font-size: 2rem; /* Увеличенный размер текста */
+    font-weight: 500;
+}
+
+.prices-section td:last-child {
+    font-weight: 700; /* Усиление цены */
+    color: #ff9800;
+}
+
+.contact-btn {
+    background-color: #ff9800;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #e68900;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.location-icon {
+    margin-right: 8px;
+    color: #ff9800;
+    font-size: 1.4rem;
+}
+
+.details-btn {
+    margin-top: 15px;
+    background-color: transparent;
+    border: 2px solid #ff9800;
+    color: #ff9800;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.details-btn:hover {
+    background-color: #ff9800;
+    color: white;
+}
+
+
+.footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: black;
+    line-height: 1.4;
+}
+
+.details-btn {
+    margin-top: 15px;
+    background-color: transparent;
+    border: 2px solid #ff9800;
+    color: #ff9800;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.details-btn:hover {
+    background-color: #ff9800;
+    color: white;
+}
+
+.mango-instruction {
+    margin-top: 25px;
+    background: #fff8e1;
+    border: 1px solid #ffe0b2;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    max-width: 400px;
+}
+.mango-instruction h3 {
+    margin-top: 0;
+    color: #ff9800;
+}
