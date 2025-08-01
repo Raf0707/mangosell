@@ -1,17 +1,22 @@
-.home-container {
-    display: flex;
+html, body, #root {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* убираем горизонтальный скролл */
 }
 
-.video-section {
+/* Общий контейнер */
+.home-container {
     position: relative;
-    flex: 0 0 130%;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    color: white;
 }
 
+/* Фоновое видео фиксировано */
 .background-video {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -20,66 +25,126 @@
     z-index: -1;
 }
 
-.content {
+/* Секция главного экрана */
+.hero-section {
     position: relative;
-    color: white;
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hero-section .content {
     background: rgba(0, 0, 0, 0.4);
     padding: 20px;
     border-radius: 10px;
+    max-width: 800px;
+    text-align: center;
 }
 
+/* Секция цен */
 .prices-section {
-    flex: 0 0 60%;
-    background-color: #fff;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
+/* Заголовки и таблица */
 .prices-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
 .prices-section table {
-    border-collapse: collapse;
     width: 100%;
-    margin-bottom: 50px;
-    font-size: 2rem; /* Увеличенный размер текста */
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    font-size: 1.5rem;
 }
 
 .prices-section td {
     border: 1px solid #ddd;
     padding: 15px;
-    font-size: 2rem; /* Увеличенный размер текста */
-    font-weight: 500;
+    color: white;
+    text-align: center; /* выравнивание */
 }
 
-.prices-section td:last-child {
-    font-weight: 700; /* Усиление цены */
+.prices-section tr td:first-child {
+    width: 50%;
+}
+
+.prices-section tr td:last-child {
+    width: 50%;
+    font-weight: bold;
     color: #ff9800;
+}
+
+/* Вертикальные кнопки */
+.contact-btn,
+.details-btn {
+    background-color: transparent;
+    border: 2px solid #ff9800;
+    color: #ff9800;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
 }
 
 .contact-btn {
     background-color: #ff9800;
     color: white;
-    padding: 12px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.contact-btn:hover {
-    background-color: #e68900;
+.contact-btn:hover,
+.details-btn:hover {
+    background-color: #ff9800;
+    color: white;
 }
 
+/* Выравнивание кнопок по центру */
+.prices-section button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Инструкция */
+.mango-instruction {
+    margin-top: 25px;
+    background: rgba(255, 248, 225, 0.9);
+    border: 1px solid #ffe0b2;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Футер */
+.footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: white;
+    line-height: 1.4;
+}
+
+/* Местоположение */
 .location-info {
     display: flex;
     align-items: center;
@@ -95,61 +160,64 @@
     font-size: 1.4rem;
 }
 
-.details-btn {
-    margin-top: 15px;
-    background-color: transparent;
-    border: 2px solid #ff9800;
-    color: #ff9800;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 6px;
+/* Убираем лишние отступы на мобильных */
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 30px 10px; /* уменьшаем боковые паддинги */
+        width: 95%;         /* почти вся ширина */
+        margin: 0 auto;     /* центрируем */
+        height: auto;       /* убираем фиксированную высоту */
+        min-height: 100vh;  /* растягиваем по экрану */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .hero-section .content {
+        width: 100%;
+        padding: 20px;
+        max-width: none; /* убираем ограничение ширины */
+        box-sizing: border-box;
+    }
+
+    .prices-section {
+        padding: 30px 10px;  /* меньше боковых отступов */
+        width: 95%;          /* почти во всю ширину */
+    }
+
+    .prices-section table {
+        font-size: 1rem;
+    }
+
+    .prices-section td {
+        padding: 10px;
+    }
+
+    .contact-btn, .details-btn {
+        max-width: 90%;      /* шире на мобильных */
+    }
+
+    .mango-instruction {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+.catalog-btn {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;   /* центрируем */
+    margin-right: auto;
+}
+
+.footer-link {
+    color: white;         /* цвет текста */
+    text-decoration: none; /* убираем подчеркивание */
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.details-btn:hover {
-    background-color: #ff9800;
-    color: white;
-}
-
-
-.footer {
-    margin-top: 30px;
-    font-size: 0.9rem;
-    text-align: center;
-    color: black;
-    line-height: 1.4;
-}
-
-.details-btn {
-    margin-top: 15px;
-    background-color: transparent;
-    border: 2px solid #ff9800;
-    color: #ff9800;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.details-btn:hover {
-    background-color: #ff9800;
-    color: white;
-}
-
-.mango-instruction {
-    margin-top: 25px;
-    background: #fff8e1;
-    border: 1px solid #ffe0b2;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: left;
-    font-size: 1rem;
-    color: #333;
-    max-width: 400px;
-}
-.mango-instruction h3 {
-    margin-top: 0;
-    color: #ff9800;
+.footer-link:hover {
+    text-decoration: underline; /* подчёркивание при наведении */
 }

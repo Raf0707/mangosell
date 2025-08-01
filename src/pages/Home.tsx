@@ -7,37 +7,38 @@ const Home: React.FC = () => {
 
     const scrollToPrices = () => {
         if (pricesRef.current) {
-            pricesRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+            pricesRef.current.scrollIntoView({ behavior: "smooth" });
         }
     };
 
     return (
         <div className="home-container">
-            {/* Левая колонка с видео */}
-            <div className="video-section">
-                <video autoPlay loop muted playsInline className="background-video">
-                    <source src="/mango-bg.mp4" type="video/mp4" />
-                    Ваш браузер не поддерживает видео.
-                </video>
-                <div className="content">
-                    <h1>Свежие египетские манго Кейт</h1>
-                    <h2>Попробуй вкус настоящего тропического лета</h2>
+            {/* Фоновое видео */}
+            <video autoPlay loop muted playsInline className="background-video">
+                <source src="/mango-bg.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает видео.
+            </video>
 
-                    {/* Блок местоположения */}
+            {/* Секция контента */}
+            <section className="hero-section">
+                <div className="content">
+                    <h1>Свежее манго</h1>
+                    <h2>Египетский сорт "Кейт" <br/>Попробуй вкус настоящего тропического лета<br/></h2>
+                    <h2></h2>
+
                     <div className="location-info">
                         <FaMapMarkerAlt className="location-icon" />
                         <span>Москва и Московская область</span>
                     </div>
 
-                    {/* Кнопка Подробнее */}
                     <button className="details-btn" onClick={scrollToPrices}>
                         Подробнее
                     </button>
                 </div>
-            </div>
+            </section>
 
-            {/* Правая колонка с ценами */}
-            <div className="prices-section" ref={pricesRef}>
+            {/* Секция с ценами */}
+            <section className="prices-section" ref={pricesRef}>
                 <h2>Цены</h2>
                 <table>
                     <tbody>
@@ -54,20 +55,18 @@ const Home: React.FC = () => {
 
                 <button
                     className="contact-btn"
-                    onClick={() => window.open("@islamgitinov", "_blank")}
+                    onClick={() => window.open("https://t.me/islamgitinov", "_blank")}
                 >
                     Связаться с продавцом
                 </button>
 
-                {/* Новая кнопка */}
                 <button
-                    className="details-btn"
+                    className="details-btn catalog-btn"
                     onClick={() => window.open("https://t.me/mangomsk1", "_blank")}
                 >
                     Перейти в каталог
                 </button>
 
-                {/* Инструкция */}
                 <div className="mango-instruction">
                     <h3>Как добиться максимальной сочности:</h3>
                     <p>
@@ -78,13 +77,20 @@ const Home: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Футер */}
                 <footer className="footer">
-                    ИП Гитинов Имам Исраилович<br />
-                    ИНН: 051708256250<br />
-                    ОГРН: 324050000185503
+                    <a
+                        href="https://www.rusprofile.ru/ip/324050000185503"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-link"
+                    >
+                        ИП Гитинов Имам Исраилович<br />
+                        ИНН: 051708256250<br />
+                        ОГРН: 324050000185503
+                    </a>
                 </footer>
-            </div>
+
+            </section>
         </div>
     );
 };
