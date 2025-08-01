@@ -54,7 +54,7 @@ const Home: React.FC = () => {
 
                 <button
                     className="contact-btn"
-                    onClick={() => window.open("https://t.me/yourusername", "_blank")}
+                    onClick={() => window.open("@islamgitinov", "_blank")}
                 >
                     Связаться с продавцом
                 </button>
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
                 {/* Новая кнопка */}
                 <button
                     className="details-btn"
-                    onClick={() => window.open("https://t.me/yourcatalog", "_blank")}
+                    onClick={() => window.open("https://t.me/mangomsk1", "_blank")}
                 >
                     Перейти в каталог
                 </button>
