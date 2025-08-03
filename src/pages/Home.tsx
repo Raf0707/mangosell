@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./Home.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const Home: React.FC = () => {
     const pricesRef = useRef<HTMLDivElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
     const scrollToPrices = () => {
         if (pricesRef.current) {
@@ -11,10 +12,31 @@ const Home: React.FC = () => {
         }
     };
 
+    useEffect(() => {
+        const video = videoRef.current;
+        if (video) {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    video.muted = true;
+                    video.play().catch(() => {});
+                });
+            }
+        }
+    }, []);
+
     return (
         <div className="home-container">
             {/* Фоновое видео */}
-            <video autoPlay loop muted playsInline className="background-video">
+            <video
+                ref={videoRef}
+                autoPlay
+                loop
+                muted={true}
+                playsInline
+                webkit-playsinline="true"
+                className="background-video"
+            >
                 <source src="/mango-bg.mp4" type="video/mp4" />
                 Ваш браузер не поддерживает видео.
             </video>
@@ -23,7 +45,11 @@ const Home: React.FC = () => {
             <section className="hero-section">
                 <div className="content">
                     <h1>Свежее манго</h1>
-                    <h2>Египетский сорт "Кейт" <br/>Попробуй вкус настоящего тропического лета<br/></h2>
+                    <h2>
+                        Египетский сорт "Кейт" <br />
+                        Попробуй вкус настоящего тропического лета
+                        <br />
+                    </h2>
                     <h2></h2>
 
                     <div className="location-info">
@@ -70,9 +96,9 @@ const Home: React.FC = () => {
                 <div className="mango-instruction">
                     <h3>Как добиться максимальной сочности:</h3>
                     <p>
-                        Кладите манго в плотный целлофановый пакет,
-                        завяжите его герметично и оставьте при комнатной температуре
-                        на 4–5 дней. После этого манго станет мягким, ароматным и
+                        Кладите манго в плотный целлофановый пакет, завяжите его
+                        герметично и оставьте при комнатной температуре на 4–5
+                        дней. После этого манго станет мягким, ароматным и
                         максимально сочным.
                     </p>
                 </div>
@@ -84,12 +110,13 @@ const Home: React.FC = () => {
                         rel="noopener noreferrer"
                         className="footer-link"
                     >
-                        ИП Гитинов Имам Исраилович<br />
-                        ИНН: 051708256250<br />
+                        ИП Гитинов Имам Исраилович
+                        <br />
+                        ИНН: 051708256250
+                        <br />
                         ОГРН: 324050000185503
                     </a>
                 </footer>
-
             </section>
         </div>
     );
